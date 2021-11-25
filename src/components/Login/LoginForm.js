@@ -72,7 +72,9 @@ const LoginForm = () => {
       dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
     >
       <Card className={styles.card} key="card">
-        <motion.h2 variants={anim_headerVariants}>Login</motion.h2>
+        <motion.h2 variants={anim_headerVariants}>
+          Ajay loves Katy more
+        </motion.h2>
         <form className={styles.form} onSubmit={formSubmitHandler}>
           <motion.label variants={anim_headerVariants} htmlFor="username">
             Username

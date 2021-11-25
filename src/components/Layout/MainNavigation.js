@@ -10,7 +10,7 @@ const anim_logoVariants = {
     transition: {
       type: "spring",
       duration: 1,
-      delay: 2.5,
+      delay: 2,
     },
   },
 };
@@ -21,7 +21,17 @@ const anim_ButtonVariants = {
     transition: {
       type: "spring",
       duration: 1,
-      delay: 2.5,
+      delay: 2,
+    },
+  },
+  hover: {
+    scale: 1.2,
+    color: "black",
+    transition: {
+      type: "spring",
+      duration: 0.4,
+      mass: 4,
+      stiffness: 400,
     },
   },
   exit: {
@@ -44,6 +54,7 @@ const anim_ButtonLogoutVariants = {
       delay: 1.5,
     },
   },
+  hover: { scale: 1.2, color: "black" },
   exit: {
     x: 500,
     transition: {
@@ -77,6 +88,7 @@ const MainNavigation = () => {
               animate="to"
               exit="exit"
               key="signUpButton"
+              whileHover="hover"
               className={styles.button}
             >
               Sign up
@@ -91,6 +103,7 @@ const MainNavigation = () => {
               animate="to"
               exit="exit"
               key="LogoutButton"
+              whileHover="hover"
               className={styles.button}
               onClick={logoutHandler}
             >

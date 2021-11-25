@@ -1,0 +1,5 @@
+Next Tasks :
+
+add exit animation for login
+Make such that background is always visible
+Mkae account page
