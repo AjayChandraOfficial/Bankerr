@@ -3,6 +3,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: end;
+  overflow: hidden;
 }
 
 .heading {
@@ -46,4 +47,7 @@ nav {
 }
 .button:hover {
   cursor: pointer;
+}
+.buttons {
+  display: flex;
 }

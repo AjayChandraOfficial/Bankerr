@@ -4,6 +4,9 @@ import LoginButton from "../Assets/LoginButton";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import { useContext } from "react";
+import { AuthStore } from "../../store/auth-context";
+import { useHistory } from "react-router";
 const anim_cardVariants = {
   from: { y: -1000 },
   to: {
@@ -30,14 +33,16 @@ const anim_buttonVariants = {
     scale: 1.1,
   },
 };
-
+let username;
 const LoginForm = () => {
+  const history = useHistory();
   const [userValidEntered, setUserValidEntered] = useState(false);
   const [passwordValidEntered, setPasswordValidEntered] = useState(false);
+  const authCtx = useContext(AuthStore);
 
   const onUsernameChange = (e) => {
     const enteredUsername = e.target.value;
-
+    username = enteredUsername;
     if (enteredUsername.trim().length >= 4) setUserValidEntered(true);
     else setUserValidEntered(false);
   };
@@ -49,6 +54,15 @@ const LoginForm = () => {
     else setPasswordValidEntered(false);
   };
   const formIsValid = userValidEntered && passwordValidEntered;
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    if (formIsValid) {
+      authCtx.setLoggedIn();
+      authCtx.setUserId(username);
+      history.push(`/${username}`);
+    }
+  };
   return (
     <motion.div
       variants={anim_cardVariants}
@@ -59,7 +73,7 @@ const LoginForm = () => {
     >
       <Card className={styles.card} key="card">
         <motion.h2 variants={anim_headerVariants}>Login</motion.h2>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={formSubmitHandler}>
           <motion.label variants={anim_headerVariants} htmlFor="username">
             Username
           </motion.label>
