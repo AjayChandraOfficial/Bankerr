@@ -1,0 +1,46 @@
+.card {
+  max-width: 30rem;
+  height: 35rem;
+  max-width: 50rem;
+  margin: 15rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  background: rgb(216, 220, 224);
+}
+
+.form input {
+  font-size: 1rem;
+  color: rgb(24, 24, 24);
+  font-size: inherit;
+  border: 1px solid rgb(82, 82, 82);
+  border-radius: 5px;
+}
+.form input:focus {
+  outline: 0;
+  border: 1px solid rgb(82, 82, 82);
+  border-radius: 5px;
+}
+.form {
+  font-size: 2.4rem;
+  color: rgb(82, 82, 82);
+  margin-top: 3rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 4rem;
+}
+h2 {
+  text-align: center;
+  font-size: 3.6rem;
+  color: rgb(20, 19, 19);
+}
+
+.button {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 8.5rem;
+  height: 8.5rem;
+  grid-column-start: 2;
+  justify-self: right;
+}
