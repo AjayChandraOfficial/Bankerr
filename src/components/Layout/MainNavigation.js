@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import { AuthStore } from "../../store/auth-context";
+import { useHistory } from "react-router-dom";
 const anim_logoVariants = {
   from: { x: -1000 },
   to: {
@@ -10,7 +11,7 @@ const anim_logoVariants = {
     transition: {
       type: "spring",
       duration: 1,
-      delay: 2.5,
+      delay: 2,
     },
   },
 };
@@ -21,7 +22,7 @@ const anim_ButtonVariants = {
     transition: {
       type: "spring",
       duration: 1,
-      delay: 2.5,
+      delay: 2,
     },
   },
   exit: {
@@ -53,9 +54,11 @@ const anim_ButtonLogoutVariants = {
   },
 };
 const MainNavigation = () => {
+  const history = useHistory();
   const authCtx = useContext(AuthStore);
 
   const logoutHandler = () => {
+    history.replace("/");
     authCtx.setLoggedOut();
   };
   return (

@@ -1,0 +1,11 @@
+.card {
+  height: 10rem;
+  max-width: 80rem;
+  border-radius: 10px;
+
+  grid-row: 3;
+  grid-column: 1;
+  padding: 4px;
+  background: rgb(229, 230, 231);
+  align-self: center;
+}

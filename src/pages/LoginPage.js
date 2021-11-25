@@ -1,11 +1,6 @@
-import LoginBackground from "../components/backgrounds/LoginBackground";
 import LoginForm from "../components/Login/LoginForm";
 const LoginPage = () => {
-  return (
-    <LoginBackground>
-      <LoginForm />
-    </LoginBackground>
-  );
+  return <LoginForm />;
 };
 
 export default LoginPage;

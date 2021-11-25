@@ -1,0 +1,19 @@
+.container {
+  max-width: 120rem;
+  margin: 5rem auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 2fr 1.3fr;
+  row-gap: 4rem;
+  column-gap: 4rem;
+}
+.card-welcome {
+  height: 10rem;
+  max-width: 80rem;
+  border-radius: 10px;
+  background: rgb(229, 230, 231);
+  align-self: center;
+  grid-row: 1;
+  grid-column: 1;
+  padding: 4px;
+}

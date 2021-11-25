@@ -19,6 +19,12 @@ const anim_cardVariants = {
       staggerChildren: 0.2,
     },
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 1,
+    },
+  },
 };
 const anim_headerVariants = {
   from: { opacity: 0 },
@@ -34,6 +40,8 @@ const anim_buttonVariants = {
   },
 };
 let username;
+
+//MAIN FUNCTIOn
 const LoginForm = () => {
   const history = useHistory();
   const [userValidEntered, setUserValidEntered] = useState(false);
@@ -68,6 +76,7 @@ const LoginForm = () => {
       variants={anim_cardVariants}
       animate="to"
       initial="from"
+      exit="exit"
       drag
       dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
     >
@@ -82,6 +91,7 @@ const LoginForm = () => {
             type="text"
             variants={anim_headerVariants}
             onChange={onUsernameChange}
+            maxlength="6"
           />
 
           <motion.label htmlFor="password" variants={anim_headerVariants}>

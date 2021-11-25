@@ -6,13 +6,15 @@ import { Fragment, useEffect } from "react";
 import { AuthStore } from "./store/auth-context";
 import { useContext } from "react";
 import AccountPage from "./components/Account/AccountPage";
-import { useLocation } from "react-router-dom";
-
+import { useLocation, useHistory } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import LoginBackground from "./components/backgrounds/LoginBackground";
 function App() {
   const authCtx = useContext(AuthStore);
   const userId = authCtx.userId;
+  const history = useHistory();
   const location = useLocation();
-
+  console.log(location);
   useEffect(() => {
     if (location.pathname === "/login") {
       authCtx.setLoggedOut();
@@ -20,23 +22,26 @@ function App() {
   }, [location.pathname, authCtx]);
 
   return (
-    <Fragment>
+    <LoginBackground>
       <MainNavigation />
-
-      <Switch>
-        <Route path="/login" exact>
-          <LoginPage />
-        </Route>
-        {authCtx.isLoggedIn && (
-          <Route path={`/${userId}`} exact>
-            <AccountPage />
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route path="/login" exact>
+            <LoginPage />
           </Route>
-        )}
-        <Route path="/">
-          <Redirect to="/login" />
-        </Route>
-      </Switch>
-    </Fragment>
+
+          {authCtx.isLoggedIn && (
+            <Route path={`/${userId}`} exact key={location.key}>
+              <AccountPage />
+            </Route>
+          )}
+
+          <Route path="/">
+            <Redirect to="/login" />
+          </Route>
+        </Switch>
+      </AnimatePresence>
+    </LoginBackground>
   );
 }
 

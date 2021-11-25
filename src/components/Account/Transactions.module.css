@@ -1,0 +1,13 @@
+.card {
+  /* height: 10rem;
+  max-width: 80rem; */
+  border-radius: 10px;
+
+  grid-row: 1 / -1;
+  grid-column: 0;
+  padding: 4px;
+  background: rgb(229, 230, 231);
+}
+.heading {
+  margin-top: 10rem;
+}
