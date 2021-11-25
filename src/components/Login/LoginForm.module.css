@@ -27,10 +27,11 @@
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  row-gap: 4rem;
+  row-gap: 5rem;
 }
 h2 {
   text-align: center;
+  margin-top: 2rem;
   font-size: 3.6rem;
   color: rgb(20, 19, 19);
 }
@@ -43,4 +44,5 @@ h2 {
   height: 8.5rem;
   grid-column-start: 2;
   justify-self: right;
+  margin-top: -3rem;
 }
